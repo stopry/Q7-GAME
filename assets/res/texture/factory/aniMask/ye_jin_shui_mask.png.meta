@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "4aecc1ec-d00b-41f5-b21d-56b51c45a242",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "ye_jin_shui_mask": {
+      "ver": "1.0.3",
+      "uuid": "c6ff1168-9346-4e16-8542-26f96b7296a5",
+      "rawTextureUuid": "4aecc1ec-d00b-41f5-b21d-56b51c45a242",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 179,
+      "height": 281,
+      "rawWidth": 179,
+      "rawHeight": 281,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

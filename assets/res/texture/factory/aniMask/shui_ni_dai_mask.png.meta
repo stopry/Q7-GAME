@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "cdb0b93a-81c5-4e58-9658-41f0e818d5e4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "shui_ni_dai_mask": {
+      "ver": "1.0.3",
+      "uuid": "4c3b7b5a-1611-45d3-ae6d-5bd5c769d78b",
+      "rawTextureUuid": "cdb0b93a-81c5-4e58-9658-41f0e818d5e4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 109,
+      "height": 239,
+      "rawWidth": 109,
+      "rawHeight": 239,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

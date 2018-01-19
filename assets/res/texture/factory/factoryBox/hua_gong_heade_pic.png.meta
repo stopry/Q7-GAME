@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "b0288be5-b3b1-405c-955a-e6482ebda305",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "hua_gong_heade_pic": {
+      "ver": "1.0.3",
+      "uuid": "5071096a-35b7-4cfc-9681-986eb4346b6f",
+      "rawTextureUuid": "b0288be5-b3b1-405c-955a-e6482ebda305",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 126,
+      "height": 126,
+      "rawWidth": 126,
+      "rawHeight": 126,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

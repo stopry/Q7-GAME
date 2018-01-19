@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "greenAni",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.35,
+  "sample": 20,
+  "speed": 0.2,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "6f3c6013-b948-4fae-b06b-e8a0fd39ba04"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "0cf123c9-ce3c-49f3-82fd-e6c62fc73323"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "b950c8bb-e26b-4ea5-a393-0f42f1752460"
+            }
+          },
+          {
+            "frame": 0.15,
+            "value": {
+              "__uuid__": "5e781e99-9c84-46ad-a3c6-36a818f91b29"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "6132e259-d4bb-477a-a8a1-41c675172f2a"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "8f4b4bee-127c-4dd7-a59f-e1ed42df95ac"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "d89f1511-0535-450c-a17f-4b730606136c"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "534c4942-6dca-489d-a0f1-5a21446889ca",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "shi_you_heade_pic": {
+      "ver": "1.0.3",
+      "uuid": "711287b0-c828-4623-9703-6af284cd6751",
+      "rawTextureUuid": "534c4942-6dca-489d-a0f1-5a21446889ca",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 126,
+      "height": 126,
+      "rawWidth": 126,
+      "rawHeight": 126,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

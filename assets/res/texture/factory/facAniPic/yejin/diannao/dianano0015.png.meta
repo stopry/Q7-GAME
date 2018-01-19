@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "bbd361b1-6450-48f0-a033-1f82548c3038",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "dianano0015": {
+      "ver": "1.0.3",
+      "uuid": "03140a79-b59e-43d9-9a81-2ae5dd687749",
+      "rawTextureUuid": "bbd361b1-6450-48f0-a033-1f82548c3038",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2,
+      "offsetY": 2,
+      "trimX": 18,
+      "trimY": 18,
+      "width": 110,
+      "height": 53,
+      "rawWidth": 150,
+      "rawHeight": 93,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

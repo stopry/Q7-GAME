@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "6f6f3089-1b23-46ef-9dbb-d02f5c8b71ab",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "guolu_green_mask": {
+      "ver": "1.0.3",
+      "uuid": "34bdfcad-c4e9-4a14-a1bb-0dfd4582f9ff",
+      "rawTextureUuid": "6f6f3089-1b23-46ef-9dbb-d02f5c8b71ab",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 17,
+      "height": 57,
+      "rawWidth": 17,
+      "rawHeight": 57,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

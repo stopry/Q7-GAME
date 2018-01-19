@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "8b0868aa-1053-4f42-b582-6d65e978f7ef",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "albox_bg": {
+      "ver": "1.0.3",
+      "uuid": "1002404e-5de4-40c9-8ae8-cf5ece10ac23",
+      "rawTextureUuid": "8b0868aa-1053-4f42-b582-6d65e978f7ef",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 600,
+      "height": 775,
+      "rawWidth": 600,
+      "rawHeight": 775,
+      "borderTop": 146,
+      "borderBottom": 139,
+      "borderLeft": 84,
+      "borderRight": 92,
+      "subMetas": {}
+    }
+  }
+}

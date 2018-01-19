@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5eaa3258-70ec-4b6b-9d98-7d21ed2fb8e9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "tree_funds_icon": {
+      "ver": "1.0.3",
+      "uuid": "1b5df937-04bd-46fd-995c-9fe571f8d7f6",
+      "rawTextureUuid": "5eaa3258-70ec-4b6b-9d98-7d21ed2fb8e9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 27,
+      "height": 22,
+      "rawWidth": 27,
+      "rawHeight": 22,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
