@@ -432,6 +432,20 @@ var Util = (function(util){
         if (r != null)return unescape(r[2]);
         return null;
     };
+    //ApplePay
+    /***
+     * @para 银联后台流水号
+     */
+    utl.applePay = function(para){
+        let isNative = cc.sys.isNative;
+        if(isNative&&cc.sys.os == "iOS"){
+            jsb.reflection.callStaticMethod(
+                "ApplePayByJS",//类名
+                "ApplePayWithJS:",//方法名
+                para//参数
+            );
+        }
+    };
 
     return new util;
 })(Util);

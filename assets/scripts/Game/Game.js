@@ -107,8 +107,10 @@ cc.Class({
             }
         });
     },
-    //去用户中心
+    //去用户中心 --暂时用支付测试
     toUserCenter(){
+        //util.applePay('617591792710436592600');return;
+
         if(Global.tranActive.users=='0') return;
         util.toAppMarket("user-center");
         /*
