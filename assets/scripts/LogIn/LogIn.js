@@ -67,9 +67,20 @@ cc.Class({
         this.autoInput();
         this.changeVer();
         this.promoteSkip();
+        this.quesNewGuide();
         //cc.director.preloadScene("Game", function () {
         //    cc.log("Game scene preloaded");
         //});
+    },
+    //答题推广页跳转过来-进行游戏新手引导
+    quesNewGuide(){
+        if(!cc.sys.isNative){
+            if(util.getQueryString('fromDati')&&util.getQueryString('token')){
+                let token = decodeURI(util.getQueryString('token'));
+                cc.sys.localStorage.setItem('token',token);
+                this.loadPlayer();//loadPalyer进入主场景
+            }
+        }
     },
     //判断是否为浏览器方式打开 接收推广码 跳转至注册界面
     promoteSkip(){

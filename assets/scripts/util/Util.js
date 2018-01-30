@@ -425,7 +425,6 @@ var Util = (function(util){
             cc.sys.openURL(Global.marketDomain+"/html/skip-page.html?"+para);
         }
     };
-
     utl.getQueryString = function(name){
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
