@@ -57,6 +57,11 @@ cc.Class({
         },
         /*打开重置密码弹框*/
     },
+    start(){
+        //cc.director.loadScene('GameT',_=>{
+        //
+        //});
+    },
     // use this for initialization
     onLoad: function () {
         //cc._initDebugSetting(cc.DebugMode.INFO);
@@ -126,12 +131,12 @@ cc.Class({
 
         this.getComponent('ReqAni').showReqAni();//显示加载动画
         Net.post('/oauth/token',!1,logdata,function(data){
-            //cc.log(data);
+            cc.log(data);
             if(!data.success){//请求失败
                 this.showLittleTip(data.msg);
                 cc.director.getScene().getChildByName('ReqAni').active = false;
                 return
-            }
+            };
             cc.sys.localStorage.setItem('token',data.obj.tokenType+" "+data.obj.accessToken);//保存数据到本地
             //cc.log(cc.sys.localStorage.getItem('token'),444);
             this.remActPwd(account,password);
@@ -197,6 +202,8 @@ cc.Class({
     remActPwd(act,pwd){//记住账号密码
         cc.sys.localStorage.setItem('act', act);
         cc.sys.localStorage.setItem('pwd', pwd);
+        cc.sys.localStorage.setItem('Qact',act);
+        cc.sys.localStorage.setItem('Qpwd',pwd);
     },
     removeStorage(){//删除本地数据
         cc.sys.localStorage.removeItem('act');

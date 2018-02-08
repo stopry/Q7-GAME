@@ -2,12 +2,14 @@
 var Net = {
     api:{
         is89:!1,//是否是89服务
-        //host:'http://api.o2plan.cn',//host
-        host:'http://api.zjiayuan.com',//host
-        //host:'',//host
         //host:'http://192.168.19.89:8081',//host
+        //host:'http://api.zjiayuan.com',//host
+        host:'',//host
+        //host:'',//host
+        //host_85:'http://192.168.19.89:8085',
+        host_85:'',
         api:'/game',
-        //api:'/api',
+        qa:'/qa',
         market:'/market'
     },
     timeOut:10000,
@@ -20,7 +22,6 @@ var Net = {
         //var host = 'http://192.168.19.200:8081';
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
-            //self.authVerify(xhr.responseText);
             if (xhr.readyState == 4&&(xhr.status >= 200 && xhr.status < 400)) {
                 var response = JSON.parse(xhr.responseText);
                 succCallBack&&succCallBack(response);
@@ -28,15 +29,26 @@ var Net = {
                // errCallBack&&errCallBack();
             }
         };
-        url = self.api.api+url;
+        if(url=='/question/index'){//Qa接口
+            host = self.api.host_85;
+
+            url = self.api.qa+url
+        }else{
+            url = self.api.api+url;
+        }
+        //url = self.api.api+url;
         xhr.open("GET", host+url+(data?this.toUrlPar(data):''), true);
         if (cc.sys.isNative) {
             xhr.setRequestHeader("Accept-Encoding","gzip,deflate");
         }
         xhr.setRequestHeader("Content-Type","application/json;charset=utf-8");
         if(header){
-            //xhr.setRequestHeader('Authorization','1');
-            xhr.setRequestHeader('Authorization',cc.sys.localStorage.getItem('token'));
+            //Qa里的token
+            if(header==2){
+                xhr.setRequestHeader('Authorization',cc.sys.localStorage.getItem('token_qa'));
+            }else{
+                xhr.setRequestHeader('Authorization',cc.sys.localStorage.getItem('token'));
+            }
         }
         xhr.timeout = this.timeOut;
         xhr.ontimeout = function (e) {
@@ -74,8 +86,12 @@ var Net = {
             }else{
                 uri = self.api.host+self.api.api+url
             }
-        }else if(url=='/oauth/token'||url=='/showOverallMarket'||url=='/reg/registerNoImg'||url=='/sms/sendRegSms'||url=='/sms/sendRestLoginSms'||url=='/reg/resetLoginPwdNoImg'){
+        }
+        else if(url=='/oauth/token'||url=='/showOverallMarket'||url=='/reg/registerNoImg'||url=='/sms/sendRegSms'||url=='/sms/sendRestLoginSms'||url=='/reg/resetLoginPwdNoImg'){
             uri = self.api.host+self.api.market+url
+        }
+        else if(url=='/login/userlogin'){//Qa接口
+            uri = self.api.host_85+self.api.qa+url
         }else{
             uri = self.api.host+self.api.api+url
         }

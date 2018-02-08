@@ -35,6 +35,7 @@ cc.Class({
             sex:'male'
         };
         this.userData = a;
+        this.mySocket = null;//全局websocket
     },
     showConDia(msg,fn1,fn2){//弹出确认对话框
         if(!Global.conLayer||!Global.conLayer.name){

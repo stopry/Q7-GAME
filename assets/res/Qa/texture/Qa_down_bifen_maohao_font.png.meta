@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "9fd32ca8-2475-4ae5-b288-913b4c506260",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Qa_down_bifen_maohao_font": {
+      "ver": "1.0.3",
+      "uuid": "fc379ccf-029e-474c-8aed-71464f988db2",
+      "rawTextureUuid": "9fd32ca8-2475-4ae5-b288-913b4c506260",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 10,
+      "height": 23,
+      "rawWidth": 10,
+      "rawHeight": 23,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

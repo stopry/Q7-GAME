@@ -36,5 +36,10 @@ window.Global={
     //是否查看过新公告-公告牌
     isLookNewAno:true,
     //是否查看过新新邮件-邮件
-    isLookMsg:true
+    isLookMsg:true,
+    /*Qa游戏相关*/
+    Qa:{
+        playAgain:false,//是否重新挑战
+        playType:1,//答题类型 1v1 单人答题 其他是3v3
+    }
 };

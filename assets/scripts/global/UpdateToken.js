@@ -25,8 +25,8 @@ cc.Class({
     //每十分钟更新一次token
     updateToken(){
 
-        var act = cc.sys.localStorage.getItem('act');
-        var pwd = cc.sys.localStorage.getItem('pwd');
+        var act = cc.sys.localStorage.getItem('Qact');
+        var pwd = cc.sys.localStorage.getItem('Qpwd');
 
         if(!act||!pwd){
             return;

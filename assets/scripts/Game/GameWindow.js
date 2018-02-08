@@ -110,6 +110,17 @@ cc.Class({
         },
         //工厂end
 
+        //答题选择框start
+        QaSelType:{
+            default:null,
+            type:cc.Prefab
+        },
+        QaSelTypeBtn:{
+            default:null,
+            type:cc.Node
+        },
+        //答题选择框startend
+
     },
 
     // use this for initialization
@@ -252,6 +263,15 @@ cc.Class({
         }
         Global.FactoryBox.parent = this.root;
         Global.FactoryBox.getComponent('FactoryBox').showThis();
+    },
+    //打开答题选择窗口
+    openQaSelBox(){
+        this.opendNormalLayer();
+        if(!Global.QaSelType||!Global.QaSelType.name){
+            Global.QaSelType = cc.instantiate(this.QaSelType);
+        }
+        Global.QaSelType.parent = this.root;
+        Global.QaSelType.getComponent('QaSelType').showThis();
     },
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

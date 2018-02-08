@@ -65,9 +65,19 @@ cc.Class({
             type:cc.Node
         }
     },
+    start(){
+        util.hideLoading();
+        this.isQaAgain();
+    },
+    isQaAgain(){
+        if(Global.Qa.playAgain){
+            Global.Qa.playAgain = false;
+            this.getComponent('GameWindow').openQaSelBox();
+            //Global.QaSelType.getComponent('QaSelType').showMatchLayer();
+        }
+    },
     // use this for initialization
     onLoad: function () {
-
         //if(!Global.cmpGuide){
         //    cc.director.loadScene('PlantDetailGuide',()=>{});
         //    return;

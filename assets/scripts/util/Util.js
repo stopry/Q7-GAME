@@ -1,7 +1,92 @@
 //工具模块
+let Net = require('Net');
 var Util = (function(util){
     util = util||function(){};
     var utl = util.prototype;
+    //获取最新Qa token
+    utl.getNewToken = _=>{
+        var act = cc.sys.localStorage.getItem('Qact');
+        var pwd = cc.sys.localStorage.getItem('Qpwd');
+        if(!act||!pwd){
+            return;
+        }
+        var logdata =  {
+            "captchaCode": "",
+            "captchaValue": "",
+            "clientId": "098f6bcd4621d373cade4e832627b4f6",
+            "login_channel": "",
+            "password": pwd,
+            "userName": act
+        };
+        return new Promise((resolve,reject)=>{
+            Net.post('/login/userlogin',!1,logdata,(data)=>{
+                if(data.success){
+                    cc.sys.localStorage.setItem('token_qa',data.obj.tokenType+" "+data.obj.accessToken);
+                }
+                resolve(data);
+            },(err)=>{
+                reject(false);
+            });
+        });
+
+    };
+    //获取socket Token
+    utl.getSocketoken = _=>{
+        var act = cc.sys.localStorage.getItem('Qact');
+        var pwd = cc.sys.localStorage.getItem('Qpwd');
+        if(!act||!pwd){
+            this.showConDia('获取失败,请重新登录',()=>{
+                cc.director.loadScene('LogIn');
+            },()=>{});
+            return;
+        }
+        var logdata =  {
+            "captchaCode": "",
+            "captchaValue": "",
+            "clientId": "098f6bcd4621d373cade4e832627b4f6",
+            "login_channel": "",
+            "password": pwd,
+            "userName": act
+        };
+        return new Promise((resolve,reject)=>{
+            Net.post('/oauth/token',!1,logdata,(data)=>{
+                if(data.success){
+                    cc.sys.localStorage.setItem('token',data.obj.tokenType+" "+data.obj.accessToken);
+                }
+                resolve(data);
+            },(err)=>{
+                reject(false);
+            });
+        });
+
+    },
+    //得到常驻几点的mysocket属性
+    utl.getMySocket = function(){
+        return this.getPerNode('PersistNode').getComponent('PersistNode').mySocket;
+    };
+    //通过节点名 获取常驻节点
+    utl.getPerNode = function(NodeName){
+        return cc.director.getScene().getChildByName(NodeName);
+    };
+    //播放加载动画
+    utl.showLoading = function(){
+        this.getPerNode('ReqAni').active = true;
+        this.getPerNode('ReqAni').getChildByName('ani').getComponent(cc.Animation).play();
+    };
+    //关闭加载动画
+    utl.hideLoading = function(){
+        this.getPerNode('ReqAni').active = false;
+        this.getPerNode('ReqAni').getChildByName('ani').getComponent(cc.Animation).stop();
+    };
+    //显示小提示
+    utl.showTips = function(str){
+        this.getPerNode('PersistNode').getComponent('LittleTip').setContent(str);
+    };
+    //显示确认对话框
+    utl.showConDia = function(msg,fn1,fn2){
+        this.getPerNode('PersistNode').getComponent('PersistNode').showConDia(msg,fn1,fn2);
+    };
+
     //验证手机号格式
     utl.verMobileReg = function(mobile){
         let mobileNum = /^(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$/;//手机号正则
