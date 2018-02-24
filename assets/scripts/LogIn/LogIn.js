@@ -58,6 +58,7 @@ cc.Class({
         /*打开重置密码弹框*/
     },
     start(){
+        this.isFromMarket();//浏览器平台
         //cc.director.loadScene('GameT',_=>{
         //
         //});
@@ -184,6 +185,21 @@ cc.Class({
             this.showLittleTip('网络错误');
             cc.director.getScene().getChildByName('ReqAni').active = false;
         }.bind(this))
+    },
+    //判断是否为市场跳转过了来 如果是直接跳转到游戏场景
+    isFromMarket(){
+        //非原生平台
+        if(!cc.sys.isNative){
+            let token = util.getQueryString('marketToken');
+            //console.log(token,token==true);
+            if(token&&Global.isFromMarket){//从市场带token跳转过来
+                Global.isFromMarket = false;
+                token = decodeURI(token);
+                cc.sys.localStorage.setItem('token',token);//保存数据到本地
+                this.getComponent('ReqAni').showReqAni();//显示加载动画
+                this.loadPlayer();
+            }
+        }
     },
     //去Z家园官网
     toZNet(){

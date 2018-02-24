@@ -167,6 +167,7 @@ const QaUtil = (function(Qa){
      *
      * */
     qa.addScoreProAni = function(process,bScore,eScore){
+        if(eScore==bScore)return;
         let interVal = setInterval(()=>{
             bScore+=0.01;
             if(bScore>=eScore){

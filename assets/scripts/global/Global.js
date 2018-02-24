@@ -20,6 +20,7 @@ window.Global={
     isFirst:true,//是否第一次initGame() Game组件
     guiderPos:cc.v2(320,568),//新手引导组件的默认位置
     plantDetailDis:20,//新手引导 手指到 种植场景返回按钮的偏差
+    isFromMarket:true,//是否是从交易市场过来
     /*游戏引导公共变量*/
     //游戏按钮功能开关
     tranActive:{

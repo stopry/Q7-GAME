@@ -7,6 +7,7 @@ var Net = {
         host:'',//host
         //host:'',//host
         //host_85:'http://192.168.19.89:8085',
+        //host_85:'http://api.zjiayuan.com',
         host_85:'',
         api:'/game',
         qa:'/qa',
@@ -22,6 +23,7 @@ var Net = {
         //var host = 'http://192.168.19.200:8081';
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
+            self.authVerify(xhr.responseText);
             if (xhr.readyState == 4&&(xhr.status >= 200 && xhr.status < 400)) {
                 var response = JSON.parse(xhr.responseText);
                 succCallBack&&succCallBack(response);
@@ -85,6 +87,9 @@ var Net = {
                 uri = 'http://192.168.19.89:8080'+self.api.market+url
             }else{
                 uri = self.api.host+self.api.api+url
+            }
+            if(url=='/login/userlogin'){//Qa接口
+                uri = self.api.host_85+self.api.qa+url
             }
         }
         else if(url=='/oauth/token'||url=='/showOverallMarket'||url=='/reg/registerNoImg'||url=='/sms/sendRegSms'||url=='/sms/sendRestLoginSms'||url=='/reg/resetLoginPwdNoImg'){

@@ -175,7 +175,7 @@ cc.Class({
         let pos2 =  this.listItem.convertToWorldSpaceAR(cc.Vec2.ZERO);
         // let pos = this.listItem.getPosition();
         Global.goodsDesc.parent = cc.find('Canvas');
-        Global.goodsDesc.setPosition(pos2.x-280,pos2.y-440);
+        Global.goodsDesc.setPosition(pos2.x-280,pos2.y-410);
         Global.goodsDesc.getComponent('GoodsInfo').showGoodInfo(
             this.img.spriteFrame,
             this.goodsName.string.split('>')[1].split('<')[0],

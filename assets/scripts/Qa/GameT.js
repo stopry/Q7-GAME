@@ -228,7 +228,7 @@ cc.Class({
         }else{
             ob = 3;
         }
-        let eb = this.ourPrgBar.progress;
+        let eb = this.anoPrgBar.progress;
         if(eb<0.3){
             eb = 0;
         }else if(eb>0.3&&eb<0.6){

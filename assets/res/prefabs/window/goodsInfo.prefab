@@ -368,9 +368,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 169,
-      "g": 105,
-      "b": 31,
+      "r": 158,
+      "g": 92,
+      "b": 15,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -382,7 +382,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 144,
-      "height": 16
+      "height": 17
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -411,7 +411,7 @@
     "_useOriginalSize": false,
     "_actualFontSize": 16,
     "_fontSize": 16,
-    "_lineHeight": 16,
+    "_lineHeight": 17,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,

@@ -36,7 +36,7 @@ cc.Class({
     //后台获取短公告数据
     getShortMsgFromBackend(){
         let id = cc.sys.localStorage.getItem('msgId')||'0';
-        Net.get('/msg/getMsg',1,{id:id},function (data) {
+        Net.get('/game/msg/getMsg',1,{id:id},function (data) {
             if(!data.success||!data.obj){
                 return;
             }

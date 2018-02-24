@@ -80,7 +80,7 @@ cc.Class({
     },
     //获取消息
     getMsg(){
-        Net.get('/message/list',1,null,(res)=>{
+        Net.get('/game/message/list',1,null,(res)=>{
             if(res.success){
                 if(res.obj){
                     //如果消息不为空

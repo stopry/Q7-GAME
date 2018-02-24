@@ -95,7 +95,7 @@ cc.Class({
         };
         message = JSON.stringify(message);
         Util.getSocketoken().then((res)=>{
-            let url = 'ws://'+'192.168.19.89:8085'+'/qa/websocket/' + res.obj.accessToken;
+            let url = 'ws://'+'web.qa.zjiayuan.com'+'/qa/websocket/' + res.obj.accessToken;
 
             this.socket =  Util.getPerNode('PersistNode').getComponent('PersistNode').mySocket  = new WebSocket(url);
 
@@ -103,7 +103,7 @@ cc.Class({
                 this.showMatchLayer();
                 this.socket.send(message);
                 this.socket.onmessage = (res)=>{
-                    console.log(res);
+                    //console.log(res);
                     res = JSON.parse(res.data);
                     if(res.cmd=='ready_info'&&res.code==0){//匹配成功
                         cc.director.loadScene('QaReady',()=>{//进入等待界面
