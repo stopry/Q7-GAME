@@ -37,8 +37,8 @@ cc.Class({
                     if(!res.success){
                         Util.showTips(res.msg);
                     }else{
-                        this.doubleChance = res.obj.doubleCnt;
-                        this.threeChance = res.obj.teamCnt;
+                        this.doubleChance = res.obj.doubleCnt+res.obj.doubleFreeCnt;
+                        this.threeChance = res.obj.teamCnt+res.obj.teamFreeCnt;
                         this.doubleNums.string = this.doubleChance
                         this.threeNums.string = this.threeChance
                     }
@@ -100,11 +100,22 @@ cc.Class({
             this.socket =  Util.getPerNode('PersistNode').getComponent('PersistNode').mySocket  = new WebSocket(url);
 
             this.socket.onopen = (res)=>{
-                this.showMatchLayer();
+                //console.log(res,'open')
+
                 this.socket.send(message);
                 this.socket.onmessage = (res)=>{
-                    //console.log(res);
+                    //console.log(res,'msg');
                     res = JSON.parse(res.data);
+
+                    if(res.cmd=='create'&&res.code==0){//匹配成功
+                        this.showMatchLayer();
+                    }
+
+                    if(res.cmd=='create'&&res.code!=0){//匹配失败
+                        this.cancelMatch();
+                        Util.showTips(res.msg);
+                    }
+
                     if(res.cmd=='ready_info'&&res.code==0){//匹配成功
                         cc.director.loadScene('QaReady',()=>{//进入等待界面
 

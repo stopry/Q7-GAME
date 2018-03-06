@@ -405,7 +405,8 @@ cc.Class({
         //工厂的类型
         let facType = res.type;
         this.greenAmtDesc.string = util.getGreenTypeByFacType(facType)+"绿能储备量：";
-        this.tipsLabel.string = "当污染度满时使用"+util.getGreenTypeByFacType(facType)+"绿能才能继续生产";
+        //this.tipsLabel.string = "当污染度满时使用"+util.getGreenTypeByFacType(facType)+"绿能才能继续生产";
+        this.tipsLabel.string = "当污染度满时，使用"+util.getGreenTypeByFacType(facType)+"绿能降低污染度后，工厂才能继续生产。";
         if(res.status==0||res.pl==0){//工厂未激活状态或者污染度为零 则禁用治理按钮
             this.dealBtnInBox.getComponent(cc.Button).interactable = false;
         }else{

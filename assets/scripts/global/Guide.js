@@ -60,6 +60,11 @@ cc.Class({
         timeClock:{
             default:null,
             type:cc.Node
+        },
+        //金币动画node
+        goldAniNode:{
+            default:null,
+            type:cc.Node
         }
     },
     // use this for initialization
@@ -438,7 +443,12 @@ cc.Class({
         this.clicker.active = false;
         this.tipsText.active = false;
 
+        //播放金币动画
+
         setTimeout(()=>{
+
+            this.goldAniNode.active = true;
+            this.goldAniNode.getComponent(cc.Animation).play('goldAni');
 
             this.masker.active = true;
             this.clicker.active = true;
@@ -464,7 +474,7 @@ cc.Class({
     * 提示进入用户中心
     * */
     step_17(){
-
+        this.goldAniNode.active = false;//关闭金币动画
         this.node.setPosition(cc.v2(320,568));
         this.person.active = false;
         this.blackBoard.active = false;

@@ -1,3 +1,4 @@
+var Util = require('Util');
 var Net = require('Net');
 cc.Class({
     extends: cc.Component,
@@ -107,7 +108,7 @@ cc.Class({
         cc.director.getScene().getChildByName('ReqAni').active = true;
         Net.get(url,1,{pageNum:pageNum},(res)=>{
             if(!res.success){
-                this.showLittleTip(res.msg);
+                Util.showTips(res.msg);
             }else{
                 let _curPage = res.obj.current;
                 let _allPage = res.obj.pages;
@@ -152,7 +153,7 @@ cc.Class({
             }
             cc.director.getScene().getChildByName('ReqAni').active = false;
         },()=>{
-            this.showLittleTip('网络错误');
+            Util.showTips('网络错误');
             cc.director.getScene().getChildByName('ReqAni').active = false;
         });
     },

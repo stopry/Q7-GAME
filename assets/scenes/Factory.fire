@@ -7399,7 +7399,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "当污染度满时使用柳树绿能才能继续生产",
+    "_N$string": "当污染度满时，使用柳树绿能降低污染度后，工厂才能继续生产。",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -7448,7 +7448,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 6,
-      "y": 25
+      "y": -4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7750,7 +7750,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 5,
-      "y": -93
+      "y": -84
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7911,7 +7911,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -135,
-      "y": 81
+      "y": 64
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7992,7 +7992,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 12,
-      "y": 77
+      "y": 60
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8164,7 +8164,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 9,
-      "y": 76
+      "y": 59
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8204,7 +8204,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 218
@@ -8278,7 +8278,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 220
