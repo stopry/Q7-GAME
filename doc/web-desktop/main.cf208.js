@@ -172,12 +172,12 @@
     }
 
     if (window.jsb) {
-        require('src/settings.36a3b.js');
+        require('src/settings.db614.js');
         require('src/jsb_polyfill.js');
         boot();
     }
     else if (false) {
-        require(window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d56db.js');
+        require(window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.118f4.js');
         var prevPipe = cc.loader.md5Pipe || cc.loader.assetLoader;
         cc.loader.insertPipeAfter(prevPipe, wxDownloader);
         boot();
@@ -188,7 +188,7 @@
 
         var cocos2d = document.createElement('script');
         cocos2d.async = true;
-        cocos2d.src = window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d56db.js';
+        cocos2d.src = window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.118f4.js';
 
         var engineLoaded = function () {
             document.body.removeChild(cocos2d);
