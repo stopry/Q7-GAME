@@ -532,8 +532,39 @@ cc.Class({
     },
     //再来一次
     playAgain(){
-        Global.Qa.playAgain = true;
-        this.backGame();
+        //先检测是否还有对应类型的答题机会
+        Util.getNewToken().then((res)=>{
+            if(!res.success){
+                Util.showConDia('您的身份过期,请重新登录',()=>{
+                    cc.director.loadScene('LogIn');
+                },()=>{});
+            }else{
+                QaUtil.getQaNum().then((res)=>{
+                    if(!res.success){
+                        Util.showTips(res.msg);
+                    }else{
+                        this.doubleChance = res.obj.doubleCnt+res.obj.doubleFreeCnt;
+                        this.threeChance = res.obj.teamCnt+res.obj.teamFreeCnt;
+                        if(Global.Qa.playType==1){//当前为1v1
+                            if(this.doubleChance<1){
+                                Util.showTips('您的1v1答题次数已用完');
+                            }else{
+                                Global.Qa.playAgain = true;
+                                this.backGame();
+                            }
+                        }else{
+                            if(this.threeChance<1){
+                                Util.showTips('您的3v3答题次数已用完');
+                            }else{
+                                Global.Qa.playAgain = true;
+                                this.backGame();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
     },
     //炫耀一下啊 分享
     shareGame(){

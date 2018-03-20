@@ -67,85 +67,85 @@ cc.Class({
         //指定交易提交参数
         //临时参数 未点击确定时
         /*this.tempPara = {
-            itemId: null,//交易物品id
-            receMobile: null,//接收人手机号
-            cnt: null,//交易数量
-            amt: null,//索取金币
-            payPwd: null,//支付密码
-            pName:null
-        };*/
-        this.tempPara = {
-            "cnt": null,//交易数量
-            "gold": null,//索取金币
-            "greenId": null,//交易物品id
-            "greenName": null,//绿能名字
-            "mobile": null,//接收人手机号
-            "paypwd": null//支付密码
-        };
-        //this.para = {
-        //    itemId: null,//交易物品id
-        //    receMobile: null,//接收人手机号
-        //    cnt: null,//交易数量
-        //    amt: null,//索取金币
-        //    payPwd: null,//支付密码
-        //    pName:null
-        //};
-        this.para = {
-            "cnt": null,//交易数量
-            "gold": null,//索取金币
-            "greenId": null,//交易物品id
-            "greenName": null,//绿能名字
-            "mobile": null,//接收人手机号
-            "paypwd": null//支付密码
-        };
-    },
-    //显示赠送框
-    openGiveBox(){
-        this.root.active = true;
-    },
-    //关闭赠送框
-    closeGiveBox(){
-        this.root.active = false;
-    },
-    /**
-     * @itemNode 绿能节点
-     * @greenInfo 绿能信息 pName名称 id id cnt 数量
-     *
-     */
-    initGreenContainer(itemNode,greenInfo){
-        greenInfo = greenInfo || {};
-        itemNode.opacity = greenInfo.cnt>0?255:50;
-        if(greenInfo.cnt){
-            itemNode.on(cc.Node.EventType.TOUCH_END,()=>{
-                if(!greenInfo.cnt) return;
-                let pos = itemNode.getPosition();
-                this.activeNode.active = true;
-                this.activeNode.setPosition(pos);
-                this.tempPara.greenId = greenInfo.id;
-                this.tempPara.greenName = greenInfo.pName;
-                this.tempPara.cnt = greenInfo.cnt;
-            },this);
-        }
-    },
-    //初始化绿能选择框
-    renderGreenBox(){
-        //改为从仓库取绿能
-        Net.get('/game/getPlayerItemList',1,{type:4},(res)=>{
-            console.log(res);
-            if(!res.success){
-                this.showLittleTip(res.msg);
-            }else{
-                let list = res.obj;
-                if(!list.length){
-                    this.showLittleTip('您还没有绿能');
-                }else{
-                    let greenInfo = util.formatGiveGreenData(list);
-                    for(let i = 0;i<greenInfo.length;i++){
-                        this.initGreenContainer(this.greenItemNode[i],greenInfo[i]);
-                    }
-                    this.greenSelBox.active = true;
-                }
+                    itemId: null,//交易物品id
+                    receMobile: null,//接收人手机号
+                    cnt: null,//交易数量
+                    amt: null,//索取金币
+                    payPwd: null,//支付密码
+                    pName:null
+                };*/
+                this.tempPara = {
+                    "cnt": null,//交易数量
+                    "gold": null,//索取金币
+                    "greenId": null,//交易物品id
+                    "greenName": null,//绿能名字
+                    "mobile": null,//接收人手机号
+                    "paypwd": null//支付密码
+                };
+                //this.para = {
+                //    itemId: null,//交易物品id
+                //    receMobile: null,//接收人手机号
+                //    cnt: null,//交易数量
+                //    amt: null,//索取金币
+                //    payPwd: null,//支付密码
+                //    pName:null
+                //};
+                this.para = {
+                    "cnt": null,//交易数量
+                    "gold": null,//索取金币
+                    "greenId": null,//交易物品id
+                    "greenName": null,//绿能名字
+                    "mobile": null,//接收人手机号
+                    "paypwd": null//支付密码
+                };
+            },
+            //显示赠送框
+            openGiveBox(){
+            this.root.active = true;
+        },
+        //关闭赠送框
+        closeGiveBox(){
+            this.root.active = false;
+        },
+        /**
+         * @itemNode 绿能节点
+         * @greenInfo 绿能信息 pName名称 id id cnt 数量
+         *
+         */
+        initGreenContainer(itemNode,greenInfo){
+            greenInfo = greenInfo || {};
+            itemNode.opacity = greenInfo.cnt>0?255:50;
+            if(greenInfo.cnt){
+                itemNode.on(cc.Node.EventType.TOUCH_END,()=>{
+                    if(!greenInfo.cnt) return;
+                    let pos = itemNode.getPosition();
+                    this.activeNode.active = true;
+                    this.activeNode.setPosition(pos);
+                    this.tempPara.greenId = greenInfo.id;
+                    this.tempPara.greenName = greenInfo.pName;
+                    this.tempPara.cnt = greenInfo.cnt;
+                },this);
             }
+        },
+        //初始化绿能选择框
+        renderGreenBox(){
+            //改为从仓库取绿能
+            Net.get('/game/getPlayerItemList',1,{type:4},(res)=>{
+                console.log(res);
+                if(!res.success){
+                    this.showLittleTip(res.msg);
+                }else{
+                    let list = res.obj;
+                    if(!list.length){
+                        this.showLittleTip('您还没有绿能');
+                    }else{
+                        let greenInfo = util.formatGiveGreenData(list);
+                        for(let i = 0;i<greenInfo.length;i++){
+                            this.initGreenContainer(this.greenItemNode[i],greenInfo[i]);
+                        }
+                        this.greenSelBox.active = true;
+                    }
+                }
         },()=>{
             this.showLittleTip('网络错误');
         });
@@ -198,7 +198,7 @@ cc.Class({
     onEndedIptCnt(){
         let cnt = (this.giveCnt.string).trim();
         if(!cnt) return;
-        if(this.myIsNaN(parseInt(cnt))){
+        if(isNaN(cnt)){//如果不是数字
             this.giveCnt.string = this.para.cnt;
             return;
         }
@@ -210,32 +210,32 @@ cc.Class({
     subGiveForm(){
         this.assignValToPara();
         if(!this.para.greenId||!this.para.greenName){
-            this.showLittleTip('请选择要赠送的绿能');
+            this.showLittleTip('请选择"出售绿能"');
             return
         }else if(!this.para.mobile){
-            this.showLittleTip('请填写接收人手机号');
+            this.showLittleTip('请填写"买家ID"');
             return
         }else if(!this.para.cnt){
-            this.showLittleTip('请填写赠送数量');
+            this.showLittleTip('请填写"出售数量"');
             return
         }else if(!this.para.gold){
-            this.showLittleTip('请填写索取金币');
+            this.showLittleTip('请填写"收取金币"');
             return
         }else if(!this.para.paypwd){
-            this.showLittleTip('请填写支付密码');
+            this.showLittleTip('请填写"支付密码"');
             return
-        }else if(!util.verMobileReg(this.para.mobile)){
-            this.showLittleTip('输入手机号有误');
+        }else if(isNaN(this.para.mobile)){
+            this.showLittleTip('"买家ID"有误');
             return
-        }else if(this.myIsNaN(parseInt(this.para.cnt))){
-            this.showLittleTip('赠送数量有误');
+        }else if(isNaN(this.para.cnt)){
+            this.showLittleTip('"出售数量"有误');
             return
-        }else if(this.myIsNaN(parseInt(this.para.gold))){
-            this.showLittleTip('索取金币有误');
+        }else if(isNaN(this.para.gold)){
+            this.showLittleTip('"收取金币"有误');
             return
         }
         this.showConDia(
-            '绿能类型:'+this.para.greenName+'\n接收人:'+this.para.mobile+'\n数量:'+this.para.cnt+'\n索取金币:'+this.para.gold,
+            '出售绿能:'+this.para.greenName+'\n买家ID:'+this.para.mobile+'\n出售数量:'+this.para.cnt+'\n收取金币:'+this.para.gold,
             ()=>{
                 this.confirmSub();
             },
@@ -245,6 +245,7 @@ cc.Class({
     //确认提交
     confirmSub(){
         cc.director.getScene().getChildByName('ReqAni').active = true;
+        this.para.targetId = this.para.mobile;
         Net.post('/game/giving/giving',1,this.para,(res)=>{
             if(!res.success){
                 this.showLittleTip(res.msg);

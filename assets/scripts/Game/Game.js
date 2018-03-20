@@ -105,6 +105,9 @@ cc.Class({
             });
         },1000*60*5);
         this.bgMusicCtrOnChange();
+        this.freshGoldInterval = setInterval(()=>{
+            this.getComponent('UpdateUserInfo').refresh(1);
+        },5*1000);
     },
     //游戏切换至后台或返回至前台游戏背景音乐控制
     bgMusicCtrOnChange(){
@@ -395,6 +398,7 @@ cc.Class({
     },
     onDestroy(){
         clearInterval(this.gamaInterval);
+        clearInterval(this.freshGoldInterval);
         cc.audioEngine.stopAll();
     }
     // called every frame, uncomment this function to activate update callback

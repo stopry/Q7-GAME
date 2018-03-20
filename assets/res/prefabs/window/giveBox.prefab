@@ -302,10 +302,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": {
-      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
-    },
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 9
@@ -330,6 +326,14 @@
     "_N$normalSprite": {
       "__uuid__": "b3f6a5b4-1fd8-419d-aeac-350d9b9d7da6"
     },
+    "_N$pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 6
@@ -1158,8 +1162,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 35
@@ -1182,6 +1184,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 29
@@ -1614,7 +1620,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$placeholder": "接收人手机号",
+    "_N$placeholder": "买家ID",
     "_N$placeholderFontSize": 20,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -2081,7 +2087,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$placeholder": "赠送数量",
+    "_N$placeholder": "出售数量",
     "_N$placeholderFontSize": 20,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -2544,7 +2550,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$placeholder": "索取金币",
+    "_N$placeholder": "收取金币",
     "_N$placeholderFontSize": 20,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
@@ -3286,8 +3292,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 104
@@ -3310,6 +3314,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 98
@@ -3631,10 +3639,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": {
-      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
-    },
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 115
@@ -3659,6 +3663,14 @@
     "_N$normalSprite": {
       "__uuid__": "b3f6a5b4-1fd8-419d-aeac-350d9b9d7da6"
     },
+    "_N$pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 112
@@ -3819,10 +3831,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": {
-      "__uuid__": "855c9140-fddd-48a6-928a-f5b9ed667aa2"
-    },
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 122
@@ -3847,6 +3855,14 @@
     "_N$normalSprite": {
       "__uuid__": "88a47b38-29aa-45c3-b1e8-08e99c2d3120"
     },
+    "_N$pressedSprite": {
+      "__uuid__": "855c9140-fddd-48a6-928a-f5b9ed667aa2"
+    },
+    "pressedSprite": {
+      "__uuid__": "855c9140-fddd-48a6-928a-f5b9ed667aa2"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 118

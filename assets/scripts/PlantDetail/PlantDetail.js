@@ -109,7 +109,7 @@ cc.Class({
         }
     },
     // use this for initialization
-    onLoad: function () {
+    start: function () {
         //是否可打开种植弹框
         this.canOpenTreeBox = true;
         //eruda.get('console').config.set('overrideConsole', false);//打印信息对应到js文件
@@ -388,7 +388,7 @@ cc.Class({
                         }else{
                             detail.nextTime = null;
                         }
-                        this.setHeader(detail,true,(this.trees[i].getComponent(cc.Sprite)).spriteFrame);
+                        this.setHeader(detail,true,(this.trees[0].getComponent(cc.Sprite)).spriteFrame);
                     }
                 }
                 if(bool){

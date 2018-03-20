@@ -231,6 +231,10 @@ cc.Class({
         Global.shop.parent = this.root;
         Global.shop.getChildByName('prop').getComponent('Shop').showThis();
     },
+    closeShop(){//关闭商店
+        Global.layer.active = false;
+        Global.shop.active = false;
+    },
     openSet(){//打开设置
         this.opendNormalLayer();
         if(!Global.setBox||!Global.setBox.name){

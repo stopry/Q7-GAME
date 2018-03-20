@@ -41,6 +41,6 @@ window.Global={
     /*Qa游戏相关*/
     Qa:{
         playAgain:false,//是否重新挑战
-        playType:1,//答题类型 1v1 单人答题 其他是3v3
+        playType:1,//答题类型 1v1 其他是3v3
     }
 };

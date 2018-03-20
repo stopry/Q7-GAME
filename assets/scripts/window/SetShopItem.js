@@ -143,6 +143,12 @@ cc.Class({
         Net.get('/game/store/buy',1,buyParm,function(data){
             if(!data.success){
                 this.showLittleTip(data.msg);
+                if(data.msg=='您的钻石不足'){
+                    this.showConDia('您的钻石不足,是否去兑换钻石?',()=>{
+                        cc.find('Game').getComponent('GameWindow').closeShop();
+                        cc.find('Game').getComponent('GameWindow').openRechargeBox();
+                    },()=>{});
+                }
             }else{
                 this.showLittleTip('购买成功');
                 cc.find('Game').getComponent('UpdateUserInfo').refresh(1);
