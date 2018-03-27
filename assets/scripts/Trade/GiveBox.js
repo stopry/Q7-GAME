@@ -45,7 +45,7 @@ cc.Class({
             default:null,
             type:cc.EditBox
         },
-        //支付密码
+        //二级密码
         payPwd:{
             default:null,
             type:cc.EditBox
@@ -71,7 +71,7 @@ cc.Class({
                     receMobile: null,//接收人手机号
                     cnt: null,//交易数量
                     amt: null,//索取金币
-                    payPwd: null,//支付密码
+                    payPwd: null,//二级密码
                     pName:null
                 };*/
                 this.tempPara = {
@@ -80,14 +80,14 @@ cc.Class({
                     "greenId": null,//交易物品id
                     "greenName": null,//绿能名字
                     "mobile": null,//接收人手机号
-                    "paypwd": null//支付密码
+                    "paypwd": null//二级密码
                 };
                 //this.para = {
                 //    itemId: null,//交易物品id
                 //    receMobile: null,//接收人手机号
                 //    cnt: null,//交易数量
                 //    amt: null,//索取金币
-                //    payPwd: null,//支付密码
+                //    payPwd: null,//二级密码
                 //    pName:null
                 //};
                 this.para = {
@@ -96,7 +96,7 @@ cc.Class({
                     "greenId": null,//交易物品id
                     "greenName": null,//绿能名字
                     "mobile": null,//接收人手机号
-                    "paypwd": null//支付密码
+                    "paypwd": null//二级密码
                 };
             },
             //显示赠送框
@@ -222,7 +222,7 @@ cc.Class({
             this.showLittleTip('请填写"收取金币"');
             return
         }else if(!this.para.paypwd){
-            this.showLittleTip('请填写"支付密码"');
+            this.showLittleTip('请填写"二级密码"');
             return
         }else if(isNaN(this.para.mobile)){
             this.showLittleTip('"买家ID"有误');

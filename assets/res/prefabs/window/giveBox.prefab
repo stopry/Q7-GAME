@@ -3004,7 +3004,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$placeholder": "支付密码",
+    "_N$placeholder": "二级密码",
     "_N$placeholderFontSize": 20,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",

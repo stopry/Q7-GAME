@@ -68,7 +68,14 @@ cc.Class({
         descPrefab:{
             default:null,
             type:cc.Prefab
-        }
+        },
+        //剩余数量
+        syNum:{
+            default:null,
+            type:cc.RichText
+        },
+        //商品图片node
+        proNode:cc.Node
     },
 
     // use this for initialization
@@ -84,7 +91,7 @@ cc.Class({
             this.addBtn.on(cc.Node.EventType.TOUCH_END,this.addNum,this);
         }
     },
-    setItem(img,goodsName,goodsDesc,goodsPrice,id,itemType){//设置日志item显示——图片商品名-商品描述-商品价格-id-商品类型
+    setItem(img,goodsName,goodsDesc,goodsPrice,id,itemType,syNum,type){//设置日志item显示——图片商品名-商品描述-商品价格-id-商品类型-剩余数量-是否开放
         if(itemType=="1"){
             this.img.spriteFrame = this.spriteList[img];
         }else{
@@ -93,8 +100,17 @@ cc.Class({
         this.goodsName.string = goodsName;
         this.goodsDesc.string = goodsDesc;
         this.goodsPrice.string = goodsPrice;
-        this.id = id;
+        if(itemType=="2"){
+            this.syNum.string = '<outline color=#521f00 width=3></outline>';
+            this.proNode.setPosition(cc.v2(-162,8));
+        }else if(type==0){
+            this.syNum.string = '<outline color=#521f00 width=3>未开放</outline>';
+        }else{
+            this.syNum.string ='<outline color=#521f00 width=3>剩余:'+syNum+'</outline>';
+        }
 
+        this.id = id;
+        this.isOpen = type==1;
         this.listItem.off(cc.Node.EventType.TOUCH_START,this.touchStart,this);
         this.listItem.off(cc.Node.EventType.TOUCH_END,this.touchEnd,this);
         this.listItem.off(cc.Node.EventType.TOUCH_CANCEL,this.touchEnd,this);
@@ -119,6 +135,10 @@ cc.Class({
         }
     },
     buy(){//购买商品
+        if(!this.isOpen){
+            this.showLittleTip('此商品暂未开放');
+            return;
+        }
         var _num = parseInt(this.goodsNum.string);
         if(!_num||_num<1||typeof(_num)!='number'){
             this.showLittleTip('请输入正确数量');
@@ -152,6 +172,7 @@ cc.Class({
             }else{
                 this.showLittleTip('购买成功');
                 cc.find('Game').getComponent('UpdateUserInfo').refresh(1);
+                Global.shop.getChildByName('tree').getComponent('Shop').loadShopData(1);
             }
             this.getComponent('ReqAni').hideReqAni();
         }.bind(this),function(err){

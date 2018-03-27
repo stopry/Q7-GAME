@@ -573,6 +573,7 @@ cc.Class({
                 }else{
                     this.showLittleTip('治理成功');
                     resolve(data.obj);
+                    this.closeDealBox();
                 }
             },(err)=>{
                 this.showLittleTip('网络错误');

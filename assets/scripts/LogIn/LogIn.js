@@ -203,7 +203,7 @@ cc.Class({
     },
     //去Z家园官网
     toZNet(){
-        cc.sys.openURL('http://www.zjiayuan.cn?isFromGame=1');
+        cc.sys.openURL('http://web.zjiayuan.com?isFromGame=1');
     },
     autoInput(){//记住密码状态下自动填充账号密码
         if(cc.sys.localStorage.getItem('act')&&cc.sys.localStorage.getItem('pwd')){

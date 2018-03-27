@@ -18,7 +18,7 @@ cc.Class({
             default:null,
             type:cc.Node
         },
-        //支付密码
+        //二级密码
         payPwd:{
             default:null,
             type:cc.EditBox
@@ -38,7 +38,7 @@ cc.Class({
         this.confirm.on(cc.Node.EventType.TOUCH_END,()=>{
             let pwd = (this.payPwd.string).trim();
             if(!pwd){
-                this.showLittleTip('请输入支付密码');
+                this.showLittleTip('请输入二级密码');
             }else{
                 conFun(pwd);
             }

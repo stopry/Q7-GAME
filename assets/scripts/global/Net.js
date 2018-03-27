@@ -129,6 +129,17 @@ var Net = {
                     },()=>{}
                 );
             }
+            if(JSON.parse(res).code=="402"){
+                cc.director.getScene().getChildByName('ReqAni').active = false;
+                cc.director.getScene().getChildByName('PersistNode').getComponent('PersistNode').showConDia(
+                    JSON.parse(res).msg,
+                    ()=>{
+                        cc.director.loadScene("LogIn");
+                    },()=>{
+                        cc.director.loadScene("LogIn");
+                    }
+                );
+            }
         }
     },
     ws:function(url,openCallBack,messageCallBack,errCallBack,closeCallBack){//WebSocket

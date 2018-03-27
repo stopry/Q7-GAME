@@ -81,6 +81,7 @@ cc.Class({
             this.shopType=1;//树苗
             this.tableBtn[0].getComponent(cc.Sprite).spriteFrame = this.btnBgList[1];
             this.tableBtn[1].getComponent(cc.Sprite).spriteFrame = this.btnBgList[2];
+            this.loadShopData(1);
         }else{
             this.shopType=2;//道具
             this.tableBtn[0].getComponent(cc.Sprite).spriteFrame = this.btnBgList[0];
@@ -118,7 +119,9 @@ cc.Class({
                         //'<color=#1E6CCD><outline color=#72FCFE width=1>'+shopList[i].price+'钻</outline></c><color=#ffffff><outline color=#562B04 width=2>/个</outline></color>',//商品价格
                         '<color=#1E6CCD><outline color=#72FCFE width=1>'+shopList[i].price+'钻</outline></c>',//商品价格
                         shopList[i].itemId,//商品id
-                        shopList[i].itemType//商品类型
+                        shopList[i].itemType,//商品类型
+                        shopList[i].num,
+                        shopList[i].type
                     );
                 }
                 //this.allPage.string = this.allPageNum;

@@ -420,6 +420,7 @@ cc.Class({
             let treeDetails= this.perNode.getComponent('PersistNode').userData.selfInfo.playerPlantingDetail;//得到全部种植详情
             let plantDetail = util.getCurPlantDetail(pdId,treeDetails);
             let isDis = plantDetail.disaster>0; //大于0为有灾难
+            this.greenEnergyArray = [];
             if(greenList.length>=0){
                 for(let l = 0;l<greenList.length;l++){
                     this.createGreenEnergy(
@@ -436,10 +437,42 @@ cc.Class({
             }
         }
     },
+    //takeAllGreen 一键收取绿能
+    takeAllGreen(){
+        let len = this.greenEnergyArray.length;
+        if(len<1){
+            this.showLittleTip('当前土地没有绿能');
+            return;
+        }
+        var noCanPickGreen = 0;
+        var self = this;
+        for(let i = 0;i<len;i++){
+            var status = this.greenEnergyArray[i].getComponent('GreenEnergy').status;
+            if(status!=2){
+                noCanPickGreen++;
+            }
+            if(status==2){
+                this.greenEnergyArray[i].getComponent('GreenEnergy').takeGreenEnergy();
+                //Net.post('/game/pick',1,{greenId:self.greenEnergyArray[i].getComponent('GreenEnergy').id},(res)=>{
+                //    if(!res.success){
+                //        cc.find('PlantDetail').getComponent('PlantDetail').showLittleTip(res.msg);
+                //    }else{
+                //        cc.find('PlantDetail').getComponent('PlantDetail').showLittleTip('收取完成');
+                //        //self.greenEnergyArray[i].getComponent('GreenEnergy').isTaking = false;
+                //    }
+                //},(err)=>{
+                //    cc.find('PlantDetail').getComponent('PlantDetail').showLittleTip('网络错误');
+                //    cc.director.getScene().getChildByName('ReqAni').active = false;
+                //});
+            }
+        }
+        if(noCanPickGreen>=len){
+            this.showLittleTip('当前土地没有可收取的绿能绿能');
+        }
+    },
     //创建绿能
     createGreenEnergy(status,countDown,treeBoxPos,type,treeType,id,isDis){//创建绿能
         var greenEne = null;
-        this.greenEnergyArray = [];
         if(this.greenPool.size()>0){
             greenEne = this.greenPool.get();
         }else{

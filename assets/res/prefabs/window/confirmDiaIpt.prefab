@@ -646,7 +646,7 @@
       "b": 255,
       "a": 255
     },
-    "_N$placeholder": "请输入支付密码",
+    "_N$placeholder": "请输入二级密码",
     "_N$placeholderFontSize": 20,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",

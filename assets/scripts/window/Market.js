@@ -85,7 +85,7 @@ cc.Class({
                     item.getComponent('MarketProItem').setItem(
                         proList[j].proId,
                         proList[j].changePrice.toFixed(5),
-                        proList[j].changeRate.toFixed(2)+'%',
+                        (proList[j].changeRate*100).toFixed(2)+'%',
                         img,
                         proList[j].proName
                     )
@@ -118,7 +118,7 @@ cc.Class({
                 for(let j = 0;j<proList.length;j++){
                     this.proList[j].getComponent('MarketProItem').updateItem(
                         proList[j].changePrice.toFixed(5),
-                        proList[j].changeRate.toFixed(2)+'%'
+                        (proList[j].changeRate*100).toFixed(2)+'%'
                     )
                 }
             }
