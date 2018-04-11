@@ -56,6 +56,9 @@ cc.Class({
 
         this.versionUpdate();
         //cc._initDebugSetting(cc.DebugMode.INFO);
+        if(!cc.sys.isNative){
+            if(registShare) registShare();//注册分享
+        }
     },
     //加载资源
     loadRes(){

@@ -42,7 +42,7 @@
   .spinner {
     -webkit-transition: all linear 300ms;
     margin:auto;
-    background: #2E6206;
+    background: #01ddb6;
     width: 375px;
     height: 667px;
     position: absolute;
@@ -98,7 +98,31 @@
   }
 </style>
 
-<script src="src/settings.33577.js" charset="utf-8"></script>
-<script src="main.70745.js" charset="utf-8"></script>
+<!--微信分享js库--start-->
+<div style="z-index:-1">
+  <div class="copyAddress" id="copyAddress" data-clipboard-text="http://www.zjiayuan.com">
+    <!-- copy -->
+  </div>
+</div>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<!--微信分享js库--end-->
+
+<script src="src/settings.c0b2f.js" charset="utf-8"></script>
+<script src="main.3c741.js" charset="utf-8"></script>
+
+<!--微信分享js库--start-->
+<script src="wxShare.js"></script>
+
+<script>
+  $(function(){
+    new Clipboard('.copyAddress');
+  })
+</script>
+<!--微信分享js库--end-->
+</body>
+
 </body>
 </html>

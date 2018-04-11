@@ -70,6 +70,20 @@ cc.Class({
     },
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
+        let channel = null;
+        let field1 = null;
+        let field2 = null;
+        let field3 = null;
+        let field4 = null;
+        let field5 = null;
+        if(!cc.sys.isNative){
+            channel = Util.getQueryString('channel');
+            field1 = Util.getQueryString('field1');
+            field2 = Util.getQueryString('field2');
+            field3 = Util.getQueryString('field3');
+            field4 = Util.getQueryString('field4');
+            field5 = Util.getQueryString('field5');
+        }
         cc.director.getScene().getChildByName('ReqAni').active = false;
         this.promoteIpt();
         //是否可以获取验证码
@@ -78,13 +92,13 @@ cc.Class({
         this.datas = {
             "captchaCode": "",
             "captchaValue": "",
-            "channel": null,
+            "channel": channel,
             "code": "",
-            "field1": null,
-            "field2": null,
-            "field3": null,
-            "field4": null,
-            "field5": null,
+            "field1": field1,
+            "field2": field2,
+            "field3": field3,
+            "field4": field4,
+            "field5": field5,
             "mobile": "",
             "password": "",
             "superiorId": ""
@@ -193,6 +207,13 @@ cc.Class({
             this.subData(this.datas).then((res)=>{
                 if(res){
                     this.showLittleTip('注册成功');
+                    cocosAnalytics.CAAccount.createRole({
+                        roleID:this.datas.mobile,
+                        userName:this.datas.password,
+                        race:'类型',
+                        class:'类型',
+                        gameServer : "Z家园"
+                    });
                     this.resetForm();
                     setTimeout(()=>{
                         this.backLogin();

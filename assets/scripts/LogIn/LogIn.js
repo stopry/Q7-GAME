@@ -74,6 +74,7 @@ cc.Class({
         this.changeVer();
         this.promoteSkip();
         this.quesNewGuide();
+        this.initAnaly();
         //cc.director.preloadScene("Game", function () {
         //    cc.log("Game scene preloaded");
         //});
@@ -178,6 +179,7 @@ cc.Class({
                     Global.tranActive.listed = functions[4].value;
                 }
                 cc.director.loadScene("Game",function(){//进入主场景
+                    cocosAnalytics.CAAccount.loginSuccess({'userID':data.obj.id});
                     cc.director.getScene().getChildByName('ReqAni').active = false;
                 }.bind(this));
             }
@@ -200,6 +202,16 @@ cc.Class({
                 this.loadPlayer();
             }
         }
+    },
+    initAnaly(){
+        cocosAnalytics.init({
+            // 申请的APPID，必填
+            appID: '634086843',
+            appSecret: '65bfa5821888a9c2eaf8aa84f93c7a6f',
+            channel: '1',
+            version: '1'
+        })
+        console.log('any');
     },
     //去Z家园官网
     toZNet(){

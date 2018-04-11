@@ -171,6 +171,14 @@ cc.Class({
                 }
             }else{
                 this.showLittleTip('购买成功');
+                cocosAnalytics.CAItem.buy({
+                    itemID :buyParm.itemId, //"魔法瓶",
+                    itemType :buyParm.itemId, //"蓝药",
+                    itemCount :buyParm.num, //购买数量，int 数字,
+                    VirtualCoin :0, //消耗虚拟币数量，int 数字,
+                    VirtualType :'0', //虚拟币类型，字符串，"钻石"、"金币"
+                    consumePoint :'0' //消耗点，字符串
+                });
                 cc.find('Game').getComponent('UpdateUserInfo').refresh(1);
                 Global.shop.getChildByName('tree').getComponent('Shop').loadShopData(1);
             }

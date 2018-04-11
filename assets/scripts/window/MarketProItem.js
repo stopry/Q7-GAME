@@ -52,17 +52,29 @@ cc.Class({
     },
     //初始化商品项
     setItem(id,changePrice,changeRate,itmePic,itmeName){
+        let _color = '#ffffff';
+        if(parseInt(changePrice+'')<0){
+            _color = '#00ff00'
+        }else{
+            _color = '#ff0000'
+        }
         this.id = id;
-        this.changePrice.string = "<color=#ffffff><outline color=#42230e width=2>"+changePrice+"</outline></color>";
-        this.changeRate.string = "<color=#ff0000><outline color=#42230e width=2>"+changeRate+"</outline></color>";
+        this.changePrice.string = "<color="+_color+"><outline color=#42230e width=2>"+changePrice+"</outline></color>";
+        this.changeRate.string = "<color="+_color+"><outline color=#42230e width=2>"+changeRate+"</outline></color>";
         this.itmePic.spriteFrame = itmePic;
         this.itmeName.string = "<color=#ffee33><outline color=#562b04 width=2>"+itmeName+"</outline></color>";
     },
     updateItem(changePrice,changeRate){
+        let _color = '#ffffff';
+        if(parseInt(changePrice+'')<0){
+            _color = '#00ff00'
+        }else{
+            _color = '#ff0000'
+        }
         this.numTop.runAction(cc.sequence(cc.scaleTo(0.3, 1, 0),cc.scaleTo(0.3, 1, 1)));
         this.numBot.runAction(cc.sequence(cc.scaleTo(0.3, 1, 0),cc.scaleTo(0.3, 1, 1)));
-        this.changePrice.string = "<color=#ffffff><outline color=#42230e width=2>"+changePrice+"</outline></color>";
-        this.changeRate.string = "<color=#ff0000><outline color=#42230e width=2>"+changeRate+"</outline></color>";
+        this.changePrice.string = "<color="+_color+"><outline color=#42230e width=2>"+changePrice+"</outline></color>";
+        this.changeRate.string = "<color="+_color+"><outline color=#42230e width=2>"+changeRate+"</outline></color>";
     },
     onDestroy(){
         this.itemBox.off(cc.Node.EventType.TOUCH_END,this.toMarket,this);

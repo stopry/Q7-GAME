@@ -3,11 +3,11 @@ var Net = {
     api:{
         is89:!1,//是否是89服务
         //host:'http://192.168.19.89:8081',//host
-        //host:'http://api.zjiayuan.com',//host
+        // host:'http://api.zjiayuan.com',//host
          host:'',//host
         //host:'',//host
         //host_85:'http://192.168.19.89:8085',
-        //host_85:'http://api.zjiayuan.com',
+        // host_85:'http://api.zjiayuan.com',
          host_85:'',
         api:'/game',
         qa:'/qa',

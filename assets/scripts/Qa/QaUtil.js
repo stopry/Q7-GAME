@@ -168,13 +168,15 @@ const QaUtil = (function(Qa){
      * */
     qa.addScoreProAni = function(process,bScore,eScore){
         if(eScore==bScore)return;
+        var probNum = Global.Qa.playType==1?6:3;
         let interVal = setInterval(()=>{
             bScore+=0.01;
             if(bScore>=eScore){
                 bScore = eScore;
+
                 clearInterval(interVal);
             }
-            process.progress = bScore/3;
+            process.progress = bScore/probNum;
         },10);
     };
 

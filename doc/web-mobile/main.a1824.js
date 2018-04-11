@@ -139,7 +139,7 @@
 
         // jsList
         var jsList = settings.jsList;
-        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.6c8a1.js';
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.128ee.js';
         if (jsList) {
             jsList = jsList.map(function (x) { return 'src/' + x; });
             jsList.push(bundledScript);
@@ -172,12 +172,12 @@
     }
 
     if (window.jsb) {
-        require('src/settings.33577.js');
+        require('src/settings.82745.js');
         require('src/jsb_polyfill.js');
         boot();
     }
     else if (false) {
-        require(window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.118f4.js');
+        require(window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d56db.js');
         var prevPipe = cc.loader.md5Pipe || cc.loader.assetLoader;
         cc.loader.insertPipeAfter(prevPipe, wxDownloader);
         boot();
@@ -188,7 +188,7 @@
 
         var cocos2d = document.createElement('script');
         cocos2d.async = true;
-        cocos2d.src = window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.118f4.js';
+        cocos2d.src = window._CCSettings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d56db.js';
 
         var engineLoaded = function () {
             document.body.removeChild(cocos2d);

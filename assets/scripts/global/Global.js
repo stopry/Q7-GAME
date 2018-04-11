@@ -42,5 +42,12 @@ window.Global={
     Qa:{
         playAgain:false,//是否重新挑战
         playType:1,//答题类型 1v1 其他是3v3
+    },
+    wxShare:{
+        title:'最新大作，《区块链+碳汇》，新风口即将到来，注册即送十元',
+        desc: '躺着赚钱，还不快来！',
+        link: !cc.sys.isNative?window.location.origin+'/?sid=0':'http://www.zjiayuan.com',
+        imgUrl: !cc.sys.isNative?window.location.origin+'/res/raw-assets/res/textures/global/share_logo.png':'http://www.zjiayuan.com'
+        // imgUrl:'http://www.senchen.vip/assets/images/market_tree1.png'
     }
 };

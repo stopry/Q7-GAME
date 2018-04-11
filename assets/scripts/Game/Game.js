@@ -218,6 +218,10 @@ cc.Class({
             this.headerInfo[4].string = this.perNode.getComponent('PersistNode').userData.selfInfo.fund||0;
             //用户id
             this.userId.string = "ID:"+this.perNode.getComponent('PersistNode').userData.selfInfo.id||0;
+            if(!cc.sys.isNative){
+                Global.wxShare.link = window.location.origin+'/?sid='+this.perNode.getComponent('PersistNode').userData.selfInfo.id||0;
+                if(registShare) registShare();//注册分享
+            }
             //用户头像
             this.userPic.spriteFrame = this.spriteList[parseInt(this.perNode.getComponent('PersistNode').userData.selfInfo.pic)-1||0];
 /*            /!*证书信息*!/

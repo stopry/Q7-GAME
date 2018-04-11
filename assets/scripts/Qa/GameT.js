@@ -40,6 +40,13 @@ cc.Class({
         failBoxScoreO:cc.Label,//failbox我方分数
         failBoxScoreE:cc.Label,//failbox对方分数
 
+        //3v3进度条数字
+        proBarNumT:[cc.Node],
+
+        //1v1进度条数字
+        proBarNumO:[cc.Node],
+        //获取奖励提示label
+        awardLabel:cc.Label,
     },
     //更新队伍信息
     /*
@@ -68,6 +75,7 @@ cc.Class({
         this.time_Out = false;//是否超时
         this.selCanClick = false;//选项是否可以点击
         this.type = Global.Qa.playType;// 1->1v1  2->3v3 默认1v1
+        this.showProBarByType();
         this._interVal = null;
         //队伍信息
         this.teamInfo = {
@@ -214,29 +222,75 @@ cc.Class({
         this.anwserResult.o = AnwOR;
         this.anwserResult.e = AnwER;//敌方回答结果
     },
+    //根据答题类型显示对应进度条数字
+    showProBarByType(){
+        if(this.type==1){
+            this.proBarNumO[0].active = true;
+            this.proBarNumO[1].active = true;
+        }else{
+            this.proBarNumT[0].active = true;
+            this.proBarNumT[1].active = true;
+        }
+    },
     //设置进度条
     setProgress(teamScore){
         let oS = parseInt(teamScore.split(':')[0]);
         let eS = parseInt(teamScore.split(':')[1]);
-        let ob = this.ourPrgBar.progress;
-        if(ob<0.3){
-            ob = 0;
-        }else if(ob>0.3&&ob<0.6){
-            ob = 1;
-        }else if(ob>0.6&&ob<1){
-            ob = 2;
+        var ob = this.ourPrgBar.progress;
+        var eb = this.anoPrgBar.progress;
+        if(this.type==1){
+            //单人答题 先答对6道题
+            if(ob<0.2){
+                ob = 0;
+            }else if(ob>0.2&&ob<0.3){
+                ob = 1;
+            }else if(ob>0.3&&ob<0.5){
+                ob = 2;
+            }else if(ob>0.4&&ob<0.6){
+                ob = 3;
+            }else if(ob>0.6&&ob<0.8){
+                ob = 4;
+            }else if(ob>0.8&&ob<0.9){
+                ob = 5;
+            }else{
+                ob = 6;
+            }
+            if(eb<0.2){
+                eb = 0;
+            }else if(eb>0.2&&eb<0.3){
+                eb = 1;
+            }else if(eb>0.3&&eb<0.5){
+                eb = 2;
+            }else if(eb>0.4&&eb<0.6){
+                eb = 3;
+            }else if(eb>0.6&&eb<0.8){
+                eb = 4;
+            }else if(eb>0.8&&eb<0.9){
+                eb = 5;
+            }else{
+                eb = 6;
+            }
         }else{
-            ob = 3;
-        }
-        let eb = this.anoPrgBar.progress;
-        if(eb<0.3){
-            eb = 0;
-        }else if(eb>0.3&&eb<0.6){
-            eb = 1;
-        }else if(eb>0.6&&eb<1){
-            eb = 2;
-        }else{
-            eb = 3;
+            //多人答题 先答对3道题
+            if(ob<0.3){
+                ob = 0;
+            }else if(ob>0.3&&ob<0.6){
+                ob = 1;
+            }else if(ob>0.6&&ob<1){
+                ob = 2;
+            }else{
+                ob = 3;
+            }
+
+            if(eb<0.3){
+                eb = 0;
+            }else if(eb>0.3&&eb<0.6){
+                eb = 1;
+            }else if(eb>0.6&&eb<1){
+                eb = 2;
+            }else{
+                eb = 3;
+            }
         }
         QaUtil.addScoreProAni(this.ourPrgBar,ob,oS);
         QaUtil.addScoreProAni(this.anoPrgBar,eb,eS);
@@ -244,7 +298,7 @@ cc.Class({
     socketResolve(){
         this.socket.onmessage = (res)=>{
             res = JSON.parse(res.data);
-            cc.log(res);
+            //cc.log(res);
             if(res.cmd=='questions'&&res.code==0){//得到问题
                 let datas = res.data;
                 this.showOptions();
@@ -308,8 +362,10 @@ cc.Class({
 
             };
             if(res.cmd=='result'&&res.code==0){//得到比赛结果
-                cc.log(this.teamInfo,'teamInfo');
+                //cc.log(this.teamInfo,'teamInfo');
                 let result = res.data;
+                this.awardLabel.string = '';
+                //console.log(result,'over');
                 //存储到本地用于结束场景
                 cc.sys.localStorage.setItem('qaResult',JSON.stringify(result));
                 this.overInfo.oScore = parseInt((result.team_score).split(':')[0]);
@@ -327,6 +383,9 @@ cc.Class({
                     for(let k = 0;k<this.teamInfo.o.length;k++){
                         this.overInfo.winTeam[k]={};
                         this.overInfo.winTeam[k].head = this.teamInfo.o[k].head;
+                    }
+                    if(result.award){
+                        this.awardLabel.string = result.award;
                     }
                     this.showResultDia(1);
                 }
