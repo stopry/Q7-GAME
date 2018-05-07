@@ -2,13 +2,13 @@
 var Net = {
     api:{
         is89:!1,//是否是89服务
-        //host:'http://192.168.19.89:8081',//host
-        // host:'http://api.zjiayuan.com',//host
-         host:'',//host
+        //host:'http://192.168.19.47:8081',//host
+         host:'http://api.zjiayuan.com',//host
+        //  host:'',//host
         //host:'',//host
-        //host_85:'http://192.168.19.89:8085',
-        // host_85:'http://api.zjiayuan.com',
-         host_85:'',
+        //host_85:'http://192.168.19.47:8080',
+         host_85:'http://api.zjiayuan.com',
+        //  host_85:'',
         api:'/game',
         qa:'/qa',
         market:'/market'
@@ -84,7 +84,7 @@ var Net = {
         //打包web版注释这段if语句
         if(self.api.is89){
             if(url=='/oauth/token'||url=='/showOverallMarket'||url=='/reg/registerNoImg'||url=='/sms/sendRegSms'||url=='/sms/sendRestLoginSms'||url=='/reg/resetLoginPwdNoImg'){
-                uri = 'http://192.168.19.89:8080'+self.api.market+url
+                uri = 'http://192.168.19.47:8080'+self.api.market+url
             }else{
                 uri = self.api.host+self.api.api+url
             }
@@ -120,6 +120,12 @@ var Net = {
     },
     authVerify:function(res){
         if(res){
+            try{
+                JSON.parse(res);
+            }catch (e){
+                //console.log('数据错误');
+                return;
+            }
             if(JSON.parse(res).code=="401"){
                 cc.director.getScene().getChildByName('ReqAni').active = false;
                 cc.director.getScene().getChildByName('PersistNode').getComponent('PersistNode').showConDia(

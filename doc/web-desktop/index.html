@@ -96,33 +96,35 @@
   .spinner.hide{
     -webkit-transform: scale(0);
   }
+  a{
+    display: none;
+  }
 </style>
-
-<!--微信分享js库--start-->
-<div style="z-index:-1">
-  <div class="copyAddress" id="copyAddress" data-clipboard-text="http://www.zjiayuan.com">
-    <!-- copy -->
+  <!--微信分享js库--start-->
+  <div style="z-index:-1">
+    <div class="copyAddress" id="copyAddress" data-clipboard-text="http://www.zjiayuan.com">
+      <!-- copy -->
+    </div>
   </div>
-</div>
+  
+    <script src="https://s22.cnzz.com/z_stat.php?id=1273392769&web_id=1273392769" language="JavaScript"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+    <!--微信分享js库--end-->
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<!--微信分享js库--end-->
+<script src="src/settings.d9cea.js" charset="utf-8"></script>
+<script src="https://analytics.cocos.com/assets/js/cocosAnalytics.min.js" charset="utf-8"></script>
+<script src="main.0bd23.js" charset="utf-8"></script>
 
-<script src="src/settings.c0b2f.js" charset="utf-8"></script>
-<script src="main.3c741.js" charset="utf-8"></script>
+  <!--微信分享js库--start-->
+  <script src="wxShare.js"></script>
 
-<!--微信分享js库--start-->
-<script src="wxShare.js"></script>
-
-<script>
-  $(function(){
-    new Clipboard('.copyAddress');
-  })
-</script>
-<!--微信分享js库--end-->
-</body>
-
+  <script>
+    $(function(){
+      new Clipboard('.copyAddress');
+    })
+  </script>
+    <!--微信分享js库--end-->
 </body>
 </html>

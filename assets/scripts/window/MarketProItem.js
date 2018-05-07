@@ -66,7 +66,7 @@ cc.Class({
     },
     updateItem(changePrice,changeRate){
         let _color = '#ffffff';
-        if(parseInt(changePrice+'')<0){
+        if(parseFloat(changePrice+'')<0){
             _color = '#00ff00'
         }else{
             _color = '#ff0000'

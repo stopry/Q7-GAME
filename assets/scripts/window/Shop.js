@@ -112,8 +112,12 @@ cc.Class({
                 for(let i = 0;i<shopList.length;i++){
                     let shopItem = cc.instantiate(this.ItemPre);
                     this.shopItemBox.addChild(shopItem);
+                    let img = parseInt(((shopList[i].itemId).toString()).split('')[3])-1;
+                    if(img<0){
+                        img = 6;
+                    }
                     shopItem.getComponent('SetShopItem').setItem(
-                        parseInt(((shopList[i].itemId).toString()).split('')[3])-1,//商品图片
+                        img,//商品图片
                         '<outline color=#562B04 width=2>'+shopList[i].name+'</outline>',//商品名字
                         shopList[i].desc,//商品介绍
                         //'<color=#1E6CCD><outline color=#72FCFE width=1>'+shopList[i].price+'钻</outline></c><color=#ffffff><outline color=#562B04 width=2>/个</outline></color>',//商品价格

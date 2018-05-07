@@ -67,7 +67,11 @@ cc.Class({
     singleQa(){
         Util.showConDia('开始答题,您即将离开游戏进入单人答题.',()=>{
             let token = encodeURI(cc.sys.localStorage.getItem('token'));
-            cc.sys.openURL('http://qa.zjiayuan.com?isFromGame=1&token='+token);
+            if(!cc.sys.isNative){
+                window.location.href = 'http://qa.zjiayuan.com?isFromGame=1&token='+token;
+            }else{
+                cc.sys.openURL('http://qa.zjiayuan.com?isFromGame=1&token='+token);
+            }
         },()=>{
 
         });

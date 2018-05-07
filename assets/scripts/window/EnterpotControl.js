@@ -125,8 +125,15 @@ cc.Class({
                     }else{
                         propList=this.tanPic;
                     }
+                    let imgIdx = parseInt(((data.obj[i].itemTypeId).toString()).split('')[3])-1;
+                    if(imgIdx<0){
+                        imgIdx = 6;
+                    }
+                    let img = propList[imgIdx];
+
                     item.getComponent('SetEnterpotItem').setItme(
-                        propList[parseInt(((data.obj[i].itemTypeId).toString()).split('')[3])-1],//物品图片
+                        img,
+                        //propList[parseInt(((data.obj[i].itemTypeId).toString()).split('')[3])-1],//物品图片
                         data.obj[i].cnt,//物品数量
                         data.obj[i].name,//物品名字
                         data.obj[i].desc//物品描述

@@ -19,6 +19,11 @@ cc.Class({
             default:null,
             type:cc.EditBox
         },
+        //二级密码
+        payPwd:{
+          default:null,
+          type:cc.EditBox
+        },
         //推荐码
         supCode:{
             default:null,
@@ -70,7 +75,7 @@ cc.Class({
     },
     // LIFE-CYCLE CALLBACKS:
     onLoad () {
-        let channel = null;
+        let channel = null;//渠道数据
         let field1 = null;
         let field2 = null;
         let field3 = null;
@@ -90,9 +95,9 @@ cc.Class({
         this.canGetMsgCode = true;
         //提交数据格式
         this.datas = {
-            "captchaCode": "",
-            "captchaValue": "",
-            "channel": channel,
+            "captchaCode": "",//图形验证码
+            "captchaValue": "",//
+            "channel": "62",
             "code": "",
             "field1": field1,
             "field2": field2,
@@ -182,6 +187,7 @@ cc.Class({
         this.datas.mobile = (this.mobile.string).trim();
         this.datas.code = (this.vCode.string).trim();
         this.datas.password = (this.password.string).trim();
+        this.datas.payPassword = (this.payPwd.string).trim();
         this.datas.superiorId = (this.supCode.string).trim()||"0";
     },
     //提交表单
@@ -195,6 +201,9 @@ cc.Class({
             return;
         }else if(!(this.password.string).trim()){
             this.showLittleTip('请填写密码');
+            return;
+        }else if(!(this.payPwd.string).trim()){
+            this.showLittleTip('请填写二级密码');
             return;
         }else if(!Util.regMobile((this.mobile.string).trim())){
             this.showLittleTip('手机号码格式有误');

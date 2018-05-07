@@ -133,7 +133,7 @@ cc.Class({
 
         this.getComponent('ReqAni').showReqAni();//显示加载动画
         Net.post('/oauth/token',!1,logdata,function(data){
-            cc.log(data);
+            //cc.log(data);
             if(!data.success){//请求失败
                 this.showLittleTip(data.msg);
                 cc.director.getScene().getChildByName('ReqAni').active = false;
@@ -156,7 +156,7 @@ cc.Class({
     },
     loadPlayer(){//加载玩家信息
         Net.get('/game/loadPlayer',1,null,function(data){
-            console.log(data);
+            //console.log(data);
             if(!data.success){
                 //this.showLittleTip(data.msg);
                 if(!data.obj){//未创建角色
@@ -215,7 +215,11 @@ cc.Class({
     },
     //去Z家园官网
     toZNet(){
-        cc.sys.openURL('http://web.zjiayuan.com?isFromGame=1');
+        if(!cc.sys.isNative){
+            window.location.href = 'http://web.zjiayuan.com?isFromGame=1';
+        }else{
+            cc.sys.openURL('http://web.zjiayuan.com?isFromGame=1');
+        }
     },
     autoInput(){//记住密码状态下自动填充账号密码
         if(cc.sys.localStorage.getItem('act')&&cc.sys.localStorage.getItem('pwd')){

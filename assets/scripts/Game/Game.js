@@ -118,6 +118,8 @@ cc.Class({
             if(Global.openBgMusic){
                 this.music = cc.audioEngine.play(this.bgMusic,true,1);
             }
+            //后台返回更新游戏界面
+            this.initGame();
         });
     },
     //去用户中心 --暂时用支付测试
@@ -326,6 +328,7 @@ cc.Class({
             var _plantDetail = util.getCurPlantDetail(pdId,this.playerPlantingDetail);
             //得到这块地的treeId并转换为对用树苗图片索引
             var _treeId = parseInt((_plantDetail.treeId+'').split('')[3])-1;
+            if(_treeId<0) _treeId = 0;
             //cc.log(_treeId,'树木id');
 
             //显示种植的树木

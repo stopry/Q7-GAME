@@ -3568,8 +3568,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 112
@@ -3592,6 +3590,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 109
@@ -3740,8 +3742,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 118
@@ -3764,6 +3764,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 115
@@ -3912,8 +3916,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 124
@@ -3936,6 +3938,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 121
@@ -4084,8 +4090,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": null,
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 130
@@ -4108,6 +4112,10 @@
       "a": 255
     },
     "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 127
@@ -4256,10 +4264,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": {
-      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
-    },
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 136
@@ -4284,6 +4288,14 @@
     "_N$normalSprite": {
       "__uuid__": "b3f6a5b4-1fd8-419d-aeac-350d9b9d7da6"
     },
+    "_N$pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "pressedSprite": {
+      "__uuid__": "c99b8888-9b61-4fa6-822e-f020bb82c431"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 133
@@ -4464,6 +4476,9 @@
       },
       {
         "__uuid__": "8b224997-37b9-41cf-94e3-88053ef72ef5"
+      },
+      {
+        "__uuid__": "40f42a20-853b-4f5c-820c-4b418200c4a8"
       }
     ],
     "woodPic": [
@@ -4484,6 +4499,9 @@
       },
       {
         "__uuid__": "bd5c10d6-4e04-41fd-b111-4985f47a1186"
+      },
+      {
+        "__uuid__": "41e5db18-d8c8-44bb-96fa-bb66e70c2990"
       }
     ],
     "propPic": [
@@ -4518,6 +4536,9 @@
       },
       {
         "__uuid__": "661085e0-2eba-41a9-819e-70d083a1449a"
+      },
+      {
+        "__uuid__": "f7d588f3-4208-4b4d-9544-40aa030168a7"
       }
     ]
   },

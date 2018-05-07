@@ -145,6 +145,8 @@ cc.Class({
             if(Global.openBgMusic){
                 this.music = cc.audioEngine.play(this.bgMusic,true,1);
             }
+            //更新种植信息
+            this.renderTree(1);
         });
     },
     //onDestroy(){
@@ -218,6 +220,7 @@ cc.Class({
                         //     this.renderTree
                         // );
                         var type = (parseInt(this.plantDetail.treeId)-1000);//树的类型 123456
+                        if(type<1) type = 1;
                         var status = this.plantDetail.status;//树的状态0-种植期 1-成长期 2-成熟期 3-枯萎期 4-已改造
                         this.canOpenTreeBox = status==4;
                         var disaster = this.plantDetail.disaster;//树的灾害类型 0-无 1-虫 2-草 3-干旱
@@ -763,6 +766,7 @@ cc.Class({
                 // this.liftAniCtr(1);
                 this.renderTree(true);
                 this.showLittleTip('改造成功,你可以重新种植树木');
+                this.canOpenTreeBox = true;
             }
             this.disableBtn(0,true);
         }.bind(this),function(){
@@ -955,14 +959,18 @@ cc.Class({
     },*/
     back(){//返回主游戏界面
         cc.director.loadScene("Game",function(){//回调
-            clearInterval(this.interVal);
+            if(this.interVal){
+                clearInterval(this.interVal);
+            }
         }.bind(this));
     },
     showLittleTip:function(str){//显示提示
         this.getComponent('LittleTip').setContent(str);
     },
     onDestroy(){
-        clearInterval(this.detailInterval);
+        if(this.detailInterval){
+            clearInterval(this.detailInterval);
+        }
         cc.audioEngine.stopAll();
         this.resetAni();
     },

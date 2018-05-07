@@ -100,7 +100,7 @@ cc.Class({
         this.prgBar[1].progress = 0;
         this.prgNum[0].string = "0/30";
         this.prgNum[1].string = "0/30";
-        this.allProfit.string = "<outline color=#8A4B11 width=2>10金币</outline>";
+        this.allProfit.string = "<outline color=#8A4B11 width=2>50金币</outline>";
         this.getComponent('LittleTip').setContent('治理环境成功!');
         this.playFacAni();
         this.closeDealBox();

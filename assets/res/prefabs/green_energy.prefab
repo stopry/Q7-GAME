@@ -197,7 +197,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 45.04,
+      "width": 0,
       "height": 18
     },
     "_rotationX": 0,
@@ -232,7 +232,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "02:22",
+    "_N$string": "",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -310,6 +310,9 @@
       },
       {
         "__uuid__": "fa2ec530-3ea5-4b8d-bd86-656c9d1452fe"
+      },
+      {
+        "__uuid__": "81a785a6-5904-48e6-9868-7fec5e885ce4"
       }
     ]
   },

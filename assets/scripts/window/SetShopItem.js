@@ -108,6 +108,9 @@ cc.Class({
         }else{
             this.syNum.string ='<outline color=#521f00 width=3>剩余:'+syNum+'</outline>';
         }
+        if(img==6){
+            this.syNum.string ='<outline color=#521f00 width=3>限购一棵</outline>';
+        }
 
         this.id = id;
         this.isOpen = type==1;

@@ -121,6 +121,19 @@ cc.Class({
         },
         //答题选择框startend
 
+        //邮件start
+
+        EmailBox:{
+            default:null,
+            type:cc.Prefab
+        },
+        emailBtn:{
+            default:null,
+            type:cc.Node
+        }
+
+        //邮件end
+
     },
 
     // use this for initialization
@@ -135,6 +148,7 @@ cc.Class({
         this.openMarketBtn.on(cc.Node.EventType.TOUCH_END,this.openMarket,this);
         this.announceBtn.on(cc.Node.EventType.TOUCH_END,this.openAnnounceBox,this);
         this.factoryBtn.on(cc.Node.EventType.TOUCH_END,this.openFactoryBox,this);
+        this.emailBtn.on(cc.Node.EventType.TOUCH_END,this.openEmailList,this);
 
     },
     //预初始化预制资源（一些弹窗），解决第一次打开卡顿现象
@@ -277,6 +291,15 @@ cc.Class({
         Global.QaSelType.parent = this.root;
         Global.QaSelType.getComponent('QaSelType').showThis();
     },
+    //打开邮件列表
+    openEmailList(){
+        this.opendNormalLayer();
+        if(!Global.EmailList||!Global.EmailList.name){
+            Global.EmailList = cc.instantiate(this.EmailBox);
+        }
+        Global.EmailList.parent = this.root;
+        Global.EmailList.getComponent('EmailList').showThis();
+    }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 

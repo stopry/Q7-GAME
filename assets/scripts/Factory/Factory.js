@@ -228,8 +228,8 @@ cc.Class({
                     let name =  this.perNode.getComponent('PersistNode').userData.selfInfo.nickname;
                     this.legalTxt.string = "<outline color=#5D1A0A width=1>"+name+"</outline>";
                 }
-                this.facNumTxt.string = "<outline color=#5D1A0A width=1>"+res.no||'未激活'+"</outline>";//工厂编号
-                this.bniRngTxt.string = "<outline color=#5D1A0A width=1>"+res.business+"</outline>";//营业范围
+                this.facNumTxt.string = "<outline color=#5D1A0A width=1>"+(res.no?res.no:'未激活')+"</outline>";//工厂编号
+                this.bniRngTxt.string = "<outline color=#5D1A0A width=1>"+(res.business?res.business:'未激活')+"</outline>";//营业范围
                 //倒计时毫秒数
                 this._countdown = res.countdown;
                 this.countDownNode.active = res.status==1;
@@ -252,6 +252,7 @@ cc.Class({
     },
     //工厂背景图和头像和动画框设置
     facBgHeadPicSet(type){
+        if(type=='0') type = "1";
         type = parseInt(type);
         if(type===2){//锅炉厂
             this.facAniMask[0].active = true;
@@ -287,8 +288,8 @@ cc.Class({
     },
     //工厂动画控制
     facAniCtr(type,status){
-
-        this.aniPlayCtr(status,this.facAniBox[parseInt(type)-1])
+        if(type=='0') type = '1';
+        this.aniPlayCtr(status,this.facAniBox[parseInt(type)-1]);
 
         /*switch (type){
             case "1":
@@ -572,7 +573,7 @@ cc.Class({
                     return;
                 }else{
                     this.showLittleTip('治理成功');
-                    resolve(data.obj);
+                    resolve(true);
                     this.closeDealBox();
                 }
             },(err)=>{

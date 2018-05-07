@@ -25,7 +25,7 @@ cc.Class({
     onLoad () {
         //消息id数组
         this.msgArr = [];
-        this.msgBtn.on(cc.Node.EventType.TOUCH_END,this.openMsgBox,this);
+        //this.msgBtn.on(cc.Node.EventType.TOUCH_END,this.openMsgBox,this);
         this.inter_val = null;
         this.getMsg();
         this.init();
@@ -80,9 +80,14 @@ cc.Class({
     },
     //获取消息
     getMsg(){
-        Net.get('/game/message/list',1,null,(res)=>{
+        Net.get('/game/message/new',1,null,(res)=>{
             if(res.success){
                 if(res.obj){
+                    this.redDot.active = true;
+                }else{
+                    this.redDot.active = false;
+                }
+                /*if(res.obj){
                     //如果消息不为空
                     if(res.obj.length>=1){
                         this.redDot.active = true;
@@ -97,7 +102,7 @@ cc.Class({
                     }
                 }else{
                     this.saveMsg([]);
-                }
+                }*/
             }
         });
     },

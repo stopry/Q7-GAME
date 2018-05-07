@@ -67,9 +67,11 @@ cc.Class({
                     }
                     this.treeItemBox.addChild(item);
                     this.treeArr.push(item);
+                    let imgIdx = parseInt(data.obj[i].pic)-1;
+                    if(imgIdx<0) imgIdx = 6;
                     item.getComponent('SelTreeItem').setItem(
                         data.obj[i].itemTypeId,//id
-                        this.treePicList[parseInt(data.obj[i].pic)-1],//图片
+                        this.treePicList[imgIdx],//图片
                         data.obj[i].name,//名字
                         data.obj[i].desc,//介绍
                         data.obj[i].cnt//数量

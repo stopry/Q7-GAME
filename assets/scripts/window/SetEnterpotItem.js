@@ -61,7 +61,12 @@ cc.Class({
     },
     touchEnd(){
         Global.goodsDesc.getComponent('GoodsInfo').hideGoodInfo();
+    },
+    //每一帧在这里执行
+    update(){
+
     }
+
     // update: function (dt) {
 
     // },

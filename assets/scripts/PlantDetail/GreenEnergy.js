@@ -26,11 +26,11 @@ cc.Class({
         this._interVal = null;
         this.thisPos = this.greenEnergy.getPosition();//得到绿能位置
         //normal
-        this.normalAction = cc.repeatForever(
-            cc.sequence(
-                cc.moveBy(1.8, 0, 15),
-                cc.moveBy(1.8, 0, -15)
-            )).easing(cc.easeIn(1.8));
+        //this.normalAction = cc.repeatForever(
+        //    cc.sequence(
+        //        cc.moveBy(1.8, 0, 15),
+        //        cc.moveBy(1.8, 0, -15)
+        //    )).easing(cc.easeIn(1.8));
         this.greenEnergy.on(cc.Node.EventType.TOUCH_END,this.takeGreenEnergy,this);
     },
     takeOk(){//收取完成
@@ -80,7 +80,7 @@ cc.Class({
         this.treeType = treeType;
         this.isDis = isDis;
         this.renderGreenEnergy(this.status,this.countDown,this.type,this.treeType,this.isDis);
-        this.greenEnergy.runAction(this.normalAction)
+        //this.greenEnergy.runAction(this.normalAction)
     },
     /**
     @param status 1-2-3  正在产出-产出完成-收取完成
@@ -93,15 +93,26 @@ cc.Class({
         this.status = status;
         this.countDown = countDown;
         this.type = type;//绿能类型好友的或自己的0/1
+
+        if(treeType<0){
+            treeType = 6;
+        }
+
         this.treeType = treeType;//绿能的种类
         this.isDis = isDis;
 
         this.greenPic.spriteFrame = this.treeTypePic[this.treeType];
         if(this.status==1){//正在产出
+            if(!this.greenEnergy||!this.greenEnergy.name){
+                return;
+            }
             this.greenEnergy.opacity = 190;
             this.greenEnergy.getChildByName('greenDesc').getComponent(cc.Label).string = '生成中...';
         }else if(this.status==2){//产出完成
             this.greenEnergy.opacity = 255;
+            if(!this.greenEnergy||!this.greenEnergy.name){
+                return;
+            }
             this.greenEnergy.getChildByName('greenDesc').getComponent(cc.Label).string = '可收取';
         }
         /*if(this.type==1){
@@ -120,6 +131,9 @@ cc.Class({
             if(this.countDown<=new Date().getTime()){
                 clearInterval(this._interVal);
                 this.status = 2;
+                if(!this.greenEnergy||!this.greenEnergy.name){
+                    return;
+                }
                 this.greenEnergy.opacity = 255;
                 this.greenEnergy.getChildByName('greenDesc').getComponent(cc.Label).string = '可收取';
             }
@@ -128,6 +142,9 @@ cc.Class({
     //刷新绿能成熟倒计时
     freshCountDown(){
       if(this.status==1){
+          if(!this.greenEnergy||!this.greenEnergy.name){
+              return;
+          }
           this.greenEnergy.opacity = 190;
           this.greenEnergy.getChildByName('greenDesc').getComponent(cc.Label).string = util.getCountDown(this.countDown);
       }
@@ -159,5 +176,5 @@ cc.Class({
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 
-    // },
+    // },0
 });

@@ -503,16 +503,21 @@ cc.Class({
     *
     * */
     step_18(){
-        cc.find('Game').getComponent('Game').showLittleTip('已完成新手引导！正在跳转至用户中心...');
+        cc.find('Game').getComponent('Game').showLittleTip('恭喜您完成所有新手引导！');
         cc.director.getScene().getChildByName('Guider').active = false;
         Global.cmpGuide = true;
         Global.guideStep = 19;
+        //打开公告框
+        cc.find('Game').getComponent('GameWindow').openAnnounceBox();
+        //取消跳转至用户中心
+        /*
         setTimeout(()=>{
             //let token = cc.sys.localStorage.getItem('token');
             //token = encodeURI(token);
-            Util.toAppMarket("user-center");
+            /Util.toAppMarket("user-center");
             //cc.sys.openURL(Global.marketDomain+"/html/skip-page.html?token="+token+"&link=user-center");
         },3000);
+        */
         this.sendStep(4);//发送完成所有新手引导步骤
     },
     //步骤19

@@ -108,7 +108,7 @@ var Util = (function(util){
         var minute = new Date(now).getMinutes();
         var second = new Date(now).getSeconds();
 
-        return [year + "-" + month + "-" + date,(hour == '0' ? '00' : hour)
+        return [year + "/" + month + "/" + date,(hour == '0' ? '00' : hour)
         + ":" + (minute == '0' ? '00' : minute)  + ":" + (second == '0' ? '00' : second)];
     };
     //得到时间戳是昨天还是今天time->指定时间戳
@@ -321,6 +321,10 @@ var Util = (function(util){
     // 根据工厂类型返回相对应的绿能类型
     utl.getGreenTypeByFacType = (type)=>{
         switch (type){
+            case "0":
+                //return '体验';
+                return '柳树';//改成柳树
+                break;
             case "1":
                 return '柳树';
                 break;
@@ -345,6 +349,9 @@ var Util = (function(util){
     };
     utl.getGreenTypeByTree = (type)=>{
         switch (type){
+            case "0":
+                return '体验林';
+                break;
             case "1":
                 return '柳树林';
                 break;
@@ -499,15 +506,19 @@ var Util = (function(util){
         }
         //ios端跳转
         if(isNative&&cc.sys.os == "iOS"){
-            jsb.reflection.callStaticMethod(
-                "CallbackByJS",//类名
-                "callAppWithJS:",//方法名
-                para//参数
-            );
+
+            cc.sys.openURL(Global.marketDomain+"/html/skip-page.html?"+para);
+
+            //jsb.reflection.callStaticMethod(
+            //    "CallbackByJS",//类名
+            //    "callAppWithJS:",//方法名
+            //    para//参数
+            //);
         }
         //如果不是native端 直接浏览器跳转
         if(!isNative){
-            cc.sys.openURL(Global.marketDomain+"/html/skip-page.html?"+para);
+            //cc.sys.openURL(Global.marketDomain+"/html/skip-page.html?"+para);
+            window.location.href = Global.marketDomain+"/html/skip-page.html?"+para;
         }
     };
     utl.getQueryString = function(name){

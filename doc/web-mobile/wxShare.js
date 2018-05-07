@@ -135,7 +135,7 @@ function registShare(){
   wx.onMenuShareTimeline({
     title: Global.wxShare.title,
     desc: Global.wxShare.desc,
-    link: "http://www.senchen.vip/goUrl/goUrl.html?url="+Global.wxShare.link,
+    link: "http://www.senchen.vip/goUrl.html?url="+Global.wxShare.link,
     imgUrl: Global.wxShare.imgUrl,
     trigger: function (res) {
       //alert('用户点击分享到朋友圈');

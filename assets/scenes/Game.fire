@@ -15987,6 +15987,12 @@
     },
     "QaSelTypeBtn": {
       "__id__": 294
+    },
+    "EmailBox": {
+      "__uuid__": "bb4d2dee-6dae-4d79-9570-28424599294f"
+    },
+    "emailBtn": {
+      "__id__": 288
     }
   },
   {
