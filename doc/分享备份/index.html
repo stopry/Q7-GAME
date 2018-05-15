@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html style="background: #2E4184"></html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Z家园</title>
+
+  <meta name="description" content="DaTi" />
+  <meta name="keywords" content="DaTi" />
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  <!-- force screen orientation on some browser -->
+  <!-- <meta name="screen-orientation" content="portrait"/>
+  <meta name="x5-orientation" content="portrait"> -->
+  <meta name="screen-orientation" content=""/>
+  <meta name="x5-orientation" content="">
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.67f95.css"/>
+
+</head>
+<body>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+
+  <!--加载小动画-->
+  <div class="spinner" id="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+  
+  <style>
+    .spinner {
+      -webkit-transition: all linear 300ms;
+      margin:auto;
+      padding-top: 7rem;
+      background: #2E4184;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 0 !important;
+      text-align: center;
+      font-size: 10px;
+    }
+    .spinner > div {
+      background-color: #FDF526;
+      height: 20px;
+      width: 8px;
+      border-radius:50%; 
+      display: inline-block;
+
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+    .spinner .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+    .spinner .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+    .spinner .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+    .spinner .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+    @-webkit-keyframes stretchdelay {
+      0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+      20% { -webkit-transform: scaleY(1.0) }
+    }
+    @keyframes stretchdelay {
+      0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+      }  20% {
+           transform: scaleY(1.0);
+           -webkit-transform: scaleY(1.0);
+         }
+    }
+    .spinner.hide{
+      -webkit-transform: scale(0);
+    }
+  </style>
+
+  <!--微信分享js库--start-->
+<div style="z-index:-1">
+  <div class="copyAddress" id="copyAddress" data-clipboard-text="http://www.zjiayuan.com">
+    <!-- copy -->
+  </div>
+</div>
+
+  <script src="https://s22.cnzz.com/z_stat.php?id=1273392769&web_id=1273392769" language="JavaScript"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+  <!--微信分享js库--end-->
+<script src="src/settings.95aa0.js" charset="utf-8"></script>
+
+<script src="main.4867c.js" charset="utf-8"></script>
+
+  <!--微信分享js库--start-->
+<script src="wxShare.js"></script>
+
+<script>
+  $(function(){
+    new Clipboard('.copyAddress');
+  })
+</script>
+  <!--微信分享js库--end-->
+</body>
+</html>
